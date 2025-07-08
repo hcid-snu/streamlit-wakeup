@@ -1,0 +1,16 @@
+name: Wake Streamlit App
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # 매 5분마다 실행 (UTC 기준)
+
+jobs:
+  wake-up:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Run wake script
+        run: |
+          python3 wake_up.py
